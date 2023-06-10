@@ -1,0 +1,21 @@
+#sudo apt update -y
+#sudo apt-get install python3-venv -y
+sudo yum update -y
+rm -rf ~/gruviVenv
+python3 -m venv ~/gruviVenv
+. ~/gruviVenv/bin/activate
+rm -rf ~/gruviRepo
+mkdir ~/gruviRepo
+cd ~/gruviRepo
+
+# SFTP THE REPO INTO CURRENT DIRECTORY #
+
+pip install -r ~/gruviRepo/manuals/requirements.txt
+
+sudo cp ~/gruviRepo/manuals/GruVi.service /etc/systemd/system/GruVi.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable GruVi
+sudo systemctl start GruVi
+
+cat manuals/basicBash.rc >> ~/.bashrc
