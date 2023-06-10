@@ -1,3 +1,8 @@
+# TODO: update these logs to do more things now that github is integrated.
+# TODO: Add template for sudo sed command to replace bot key in GruVi.service
+# TODO: Allow it to have a name other than GruVi
+# TODO: Make this a proper deployment script
+
 #sudo apt update -y
 #sudo apt-get install python3-venv -y
 sudo yum update -y
@@ -8,7 +13,7 @@ rm -rf ~/gruviRepo
 mkdir ~/gruviRepo
 cd ~/gruviRepo
 
-# SFTP THE REPO INTO CURRENT DIRECTORY #
+# git pull #
 
 pip install -r ~/gruviRepo/manuals/requirements.txt
 
