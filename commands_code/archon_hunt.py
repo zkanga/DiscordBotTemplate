@@ -33,7 +33,7 @@ def get_archon_hunt():
     for mission in response[ARCHON_HUNT_MISSIONS_KEY]:
         if mission[ARCHON_HUNT_MISSIONS_TYPE_KEY] == "Assassination":
             archon = response[BOSS_KEY]
-            boss_body = ARCHON_BOSS_NAME_TO_BODY.get(archon)
+            boss_body = ARCHON_BOSS_NAME_TO_BODY.get(archon, archon)
             out[ARCHON_HUNT_MISSIONS_KEY].append(f"{mission[ARCHON_HUNT_MISSIONS_TYPE_KEY]}({archon})")
             out[TIME_KEY] = f"Hunt the {boss_body} for the next {response[TIME_KEY].replace('-', '')}"
         else:
