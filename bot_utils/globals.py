@@ -10,7 +10,6 @@ all_alert_role = 'WF Privates Alert'
 important_alert_role = "WF Vet Alert"
 gruvi_roles = [all_alert_role, important_alert_role]
 gruvi_role_colors = [discord.Color(15277667), discord.Color(12745742)]
-gruvi_role_emojis = [":battery:", ":low_battery:"]
 update_status_time = 5
 wf_alert_timer = update_status_time
 log_file = "logs/GruVi.log"
@@ -37,7 +36,7 @@ ARCHON_HUNT_MISSIONS_KEY = "missions"
 ARCHON_HUNT_MISSIONS_TYPE_KEY = 'type'
 ARCHON_BOSS_NAME_TO_BODY = {
     "Archon Amar": "Wolf Man",
-    "Archon Boreal": "Owl(?) Dude",
+    "Archon Boreal": "Bird(?) Boy",
     "Archon Nira": "Snake Lady",
 }
 
