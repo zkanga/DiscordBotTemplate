@@ -14,6 +14,11 @@ while [[ $# -gt 0 ]]; do
         shift # past argument
         shift # past value
         ;;
+        --user_name)
+        user_name="$2"
+        shift # past argument
+        shift # past value
+        ;;
         *)  # unknown option
         echo "Unknown option: $1"
         exit 1
@@ -21,7 +26,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Check if bot_name and bot_key were provided
+# Check if bot_name, bot_key, and user_name were provided
 if [ -z "$bot_name" ]; then
     echo "bot_name argument is required."
     exit 1
@@ -32,6 +37,10 @@ if [ -z "$bot_key" ]; then
     exit 1
 fi
 
+if [ -z "$user_name" ]; then
+    echo "user_name argument is required."
+    exit 1
+fi
 
 # Check the Linux distribution
 if [ -x "$(command -v apt)" ]; then
@@ -74,6 +83,7 @@ echo "Updated venv ..."
 sudo cp ~/DiscordBotTemplate/manuals/ServiceTemplate.service /etc/systemd/system/"$bot_name".service
 sudo sed -i "s/BOT_NAME/$bot_name/g" /etc/systemd/system/"$bot_name".service
 sudo sed -i "s/BOT_KEY/$bot_key/g" /etc/systemd/system/"$bot_name".service
+sudo sed -i "s/USER_NAME/$user_name/g" /etc/systemd/system/"$bot_name".service
 
 sudo systemctl daemon-reload
 sudo systemctl enable "$bot_name"
