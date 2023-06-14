@@ -1,0 +1,15 @@
+[Unit]
+Description=BOT_NAME Service
+After=network.target
+
+[Service]
+Environment="bot_key=BOT_KEY"
+Type=simple
+User=user_name
+Group=user_name
+WorkingDirectory=/home/user_name/DiscordBotTemplate
+ExecStart=/home/user_name/BOT_NAMEVenv/bin/python3 /home/user_name/DiscordBotTemplate/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
