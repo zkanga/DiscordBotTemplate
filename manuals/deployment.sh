@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#  ~/DiscordBotTemplate/manuals/deployment.sh --bot_name "Bot Name" --bot_key "Key Value" --user_name "user"
+
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
     key="$1"
@@ -67,9 +69,6 @@ if ! [ -x "$(command -v python3-venv)" ]; then
     echo "Installing python3-venv..."
     sudo $package_manager install python3-venv -y
 fi
-
-git clone https://github.com/zkanga/DiscordBotTemplate.git
-echo "Cloned repo ..."
 
 # Creating updated venv
 rm -rf ~/"$bot_name"Venv
