@@ -66,7 +66,7 @@ echo "Cloned repo ..."
 rm -rf ~/"$bot_name"Venv
 python3 -m venv ~/"$bot_name"Venv
 . ~/"$bot_name"Venv/bin/activate
-pip install -r ~/"$bot_name"Repo/manuals/requirements.txt
+pip install -r ~/DiscordBotTemplate/manuals/requirements.txt
 echo "Updated venv ..."
 
 
