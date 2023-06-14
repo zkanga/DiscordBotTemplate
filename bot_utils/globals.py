@@ -9,7 +9,7 @@ from discord.ext import commands
 
 headers = {"Authorization": f"Bot {os.environ.get('bot_key')}"}
 response = requests.get("https://discord.com/api/v10/users/@me", headers=headers)
-bot_name = response.json()["username"] if response.status_code == 200 else "InvalidBotKey"
+bot_name = response.json()["username"].replace(" ", "") if response.status_code == 200 else "InvalidBotKey"
 log_file = f"logs/{bot_name}.log"
 
 channel_name = "bot-commands"
