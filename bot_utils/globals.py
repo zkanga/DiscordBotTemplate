@@ -1,9 +1,16 @@
-import discord
-from discord.ext import commands
 import logging
-import pytz
-import datetime
+import os
 import sys
+
+import discord
+import pytz
+import requests
+from discord.ext import commands
+
+headers = {"Authorization": f"Bot {os.environ.get('bot_key')}"}
+response = requests.get("https://discord.com/api/v10/users/@me", headers=headers)
+bot_name = response.json()["username"] if response.status_code == 200 else "InvalidBotKey"
+log_file = f"logs/{bot_name}.log"
 
 channel_name = "bot-commands"
 all_alert_role = 'WF Privates Alert'
@@ -24,9 +31,6 @@ intents.guild_messages = True
 
 command_prefix = '!'
 bot = commands.Bot(command_prefix=command_prefix, intents=intents)
-
-log_file = f"logs/{bot.user.name}.log"
-
 
 # mission keys for the sortie
 BOSS_KEY = "boss"

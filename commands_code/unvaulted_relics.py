@@ -87,7 +87,7 @@ def scrape_vaulted_relics():
         if ("href=\"/wiki/Lith_" in line or
             "href=\"/wiki/Meso_" in line or
             "href=\"/wiki/Neo_" in line or
-            "href=\"/wiki/Axi_"in line ) and "title=\""  in line:
+            "href=\"/wiki/Axi_" in line) and "title=\"" in line:
             vaultedItems.add(parse_vaulted_parts(line))
     return vaultedItems
 
