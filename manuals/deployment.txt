@@ -13,8 +13,6 @@ rm -rf ~/gruviRepo
 mkdir ~/gruviRepo
 cd ~/gruviRepo
 
-# git pull #
-
 pip install -r ~/gruviRepo/manuals/requirements.txt
 
 sudo cp ~/gruviRepo/manuals/GruVi.service /etc/systemd/system/GruVi.service
