@@ -71,7 +71,7 @@ echo "Updated venv ..."
 
 
 # Copy service file to systemd directory
-sudo cp ~/"$bot_name"Repo/manuals/ServiceTemplate.service /etc/systemd/system/"$bot_name".service
+sudo cp ~/DiscordBotTemplate/manuals/ServiceTemplate.service /etc/systemd/system/"$bot_name".service
 sudo sed -i "s/BOT_NAME/$project_name/g" /etc/systemd/system/"$bot_name".service
 sudo sed -i "s/BOT_NAME/$BOT_KEY/g" /etc/systemd/system/"$bot_name".service
 
