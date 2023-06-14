@@ -1,5 +1,5 @@
 [Unit]
-Description=BOT_KEY Service
+Description=BOT_NAME Service
 After=network.target
 
 [Service]
@@ -8,7 +8,7 @@ Type=simple
 User=zkanga
 Group=zkanga
 WorkingDirectory=/home/zkanga/gruviRepo
-ExecStart=/home/zkanga/BOT_NAMEVenv/bin/python /home/zkanga/BOT_NAMERepo/main.py
+ExecStart=/home/zkanga/DiscordBotTemplate/bin/python /home/zkanga/BOT_NAMERepo/main.py
 Restart=always
 
 [Install]
