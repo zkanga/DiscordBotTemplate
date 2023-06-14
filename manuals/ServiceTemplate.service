@@ -1,14 +1,14 @@
 [Unit]
-Description=GruVi Service
+Description=BOT_KEY Service
 After=network.target
 
 [Service]
 Environment="bot_key=BOT_KEY"
 Type=simple
-User=ec2-user
-Group=ec2-user
-WorkingDirectory=/home/ec2-user/gruviRepo
-ExecStart=/home/ec2-user/BOT_NAMEVenv/bin/python /home/ec2-user/BOT_NAMERepo/main.py
+User=zkanga
+Group=zkanga
+WorkingDirectory=/home/zkanga/gruviRepo
+ExecStart=/home/zkanga/BOT_NAMEVenv/bin/python /home/zkanga/BOT_NAMERepo/main.py
 Restart=always
 
 [Install]
