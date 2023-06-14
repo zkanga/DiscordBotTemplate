@@ -7,7 +7,7 @@ Environment="bot_key=BOT_KEY"
 Type=simple
 User=zkanga
 Group=zkanga
-WorkingDirectory=/home/zkanga/gruviRepo
+WorkingDirectory=/home/zkanga/DiscordBotTemplate
 ExecStart=/home/zkanga/BOT_NAMEVenv/bin/python3 /home/zkanga/DiscordBotTemplate/main.py
 Restart=always
 
