@@ -8,11 +8,10 @@ import sys
 channel_name = "bot-commands"
 all_alert_role = 'WF Privates Alert'
 important_alert_role = "WF Vet Alert"
-gruvi_roles = [all_alert_role, important_alert_role]
-gruvi_role_colors = [discord.Color(15277667), discord.Color(12745742)]
+bot_roles = [all_alert_role, important_alert_role]
+role_colors = [discord.Color(15277667), discord.Color(12745742)]
 update_status_time = 5
 wf_alert_timer = update_status_time
-log_file = "logs/GruVi.log"
 
 intents = discord.Intents.default()
 intents.typing = True
@@ -22,6 +21,12 @@ intents.messages = True
 intents.message_content = True
 intents.guilds = True
 intents.guild_messages = True
+
+command_prefix = '!'
+bot = commands.Bot(command_prefix=command_prefix, intents=intents)
+
+log_file = f"logs/{bot.user.name}.log"
+
 
 # mission keys for the sortie
 BOSS_KEY = "boss"
@@ -39,9 +44,6 @@ ARCHON_BOSS_NAME_TO_BODY = {
     "Archon Boreal": "Bird(?) Boy",
     "Archon Nira": "Snake Lady",
 }
-
-command_prefix = '!'
-bot = commands.Bot(command_prefix=command_prefix, intents=intents)
 
 # Set the desired timezone
 timezone = pytz.timezone("PST8PDT")

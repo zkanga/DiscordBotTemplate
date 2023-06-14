@@ -1,4 +1,4 @@
-from bot_utils.globals import logger, channel_name, bot, gruvi_roles, gruvi_role_colors
+from bot_utils.globals import logger, channel_name, bot, bot_roles, role_colors
 from time import sleep
 import discord
 from discord.ext import commands
@@ -11,7 +11,7 @@ class BotNotifications(commands.Cog):
     @commands.command()
     async def roles(self, ctx):
         """Prints all roles available through me"""
-        await ctx.send(f"The available roles are {gruvi_roles} \n{ctx.author.mention}")
+        await ctx.send(f"The available roles are {bot_roles} \n{ctx.author.mention}")
 
     @commands.command()
     async def addRole(self, ctx, *, message):
@@ -25,7 +25,7 @@ class BotNotifications(commands.Cog):
 
 
 async def role_command(cmd_type, ctx, message):
-    if message in gruvi_roles:
+    if message in bot_roles:
         role_name = message
         assignee = ctx.author
     else:
@@ -34,7 +34,7 @@ async def role_command(cmd_type, ctx, message):
         assignee = discord.utils.find(
             lambda m: m.name == username or (m.nick and m.nick == username), ctx.guild.members
         )
-    if role_name not in gruvi_roles:
+    if role_name not in bot_roles:
         await ctx.send(f"That is not a role for this bot.\n{ctx.author}")
     if cmd_type == 'add':
         role = discord.utils.get(ctx.guild.roles, name=role_name)
@@ -68,7 +68,7 @@ async def create_channel(guild):
 
 
 async def create_role(guild, role_name):
-    role = await guild.create_role(name=role_name, color=gruvi_role_colors[gruvi_roles.index(role_name)])
+    role = await guild.create_role(name=role_name, color=role_colors[bot_roles.index(role_name)])
     await role.edit(mentionable=True)
     sleep(5)
     logger.info(f"Created role {role.name} in guild {guild.name}")
@@ -101,7 +101,7 @@ async def on_guild_join(guild):
     # Code to execute when the bot joins a new guild
     # You can perform tasks such as sending a welcome message, creating default channels, etc.
     # await guild.system_channel.send(f"Thank you for adding me, *{bot.user.name}* to your server!")
-    await ping_in_guild(guild, f"{bot.user.name} is here and ready to Flamenco", gruvi_roles)
+    await ping_in_guild(guild, f"{bot.user.name} is here and ready to Flamenco", bot_roles)
     logger.info(f'SUCCESS: Joined new guild - {guild}')
 
 

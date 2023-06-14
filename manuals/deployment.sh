@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # git clone https://github.com/zkanga/DiscordBotTemplate.git
-#   ~/DiscordBotTemplate/manuals/deployment.sh --bot_name "Bot Name" --bot_key "Key Value" --user_name "user"
+#   ~/DiscordBotTemplate/manuals/deployment.sh --bot_name "Bot Name" --bot_key "Key Value" --user_name "$whoami"
 
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
