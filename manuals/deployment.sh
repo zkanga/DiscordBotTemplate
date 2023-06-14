@@ -72,8 +72,8 @@ echo "Updated venv ..."
 
 # Copy service file to systemd directory
 sudo cp ~/DiscordBotTemplate/manuals/ServiceTemplate.service /etc/systemd/system/"$bot_name".service
-sudo sed -i "s/BOT_NAME/$project_name/g" /etc/systemd/system/"$bot_name".service
-sudo sed -i "s/BOT_NAME/$BOT_KEY/g" /etc/systemd/system/"$bot_name".service
+sudo sed -i "s/BOT_NAME/$bot_name/g" /etc/systemd/system/"$bot_name".service
+sudo sed -i "s/BOT_KEY/$bot_key/g" /etc/systemd/system/"$bot_name".service
 
 sudo systemctl daemon-reload
 sudo systemctl enable "$bot_name"
