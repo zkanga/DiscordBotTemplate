@@ -1,18 +1,24 @@
-import discord
-from discord.ext import commands
 import logging
-import pytz
-import datetime
+import os
 import sys
+
+import discord
+import pytz
+import requests
+from discord.ext import commands
+
+headers = {"Authorization": f"Bot {os.environ.get('bot_key')}"}
+response = requests.get("https://discord.com/api/v10/users/@me", headers=headers)
+bot_name = response.json()["username"].replace(" ", "") if response.status_code == 200 else "InvalidBotKey"
+log_file = f"logs/{bot_name}.log"
 
 channel_name = "bot-commands"
 all_alert_role = 'WF Privates Alert'
 important_alert_role = "WF Vet Alert"
-gruvi_roles = [all_alert_role, important_alert_role]
-gruvi_role_colors = [discord.Color(15277667), discord.Color(12745742)]
+bot_roles = [all_alert_role, important_alert_role]
+role_colors = [discord.Color(15277667), discord.Color(12745742)]
 update_status_time = 5
 wf_alert_timer = update_status_time
-log_file = "logs/GruVi.log"
 
 intents = discord.Intents.default()
 intents.typing = True
@@ -22,6 +28,9 @@ intents.messages = True
 intents.message_content = True
 intents.guilds = True
 intents.guild_messages = True
+
+command_prefix = '!'
+bot = commands.Bot(command_prefix=command_prefix, intents=intents)
 
 # mission keys for the sortie
 BOSS_KEY = "boss"
@@ -39,9 +48,6 @@ ARCHON_BOSS_NAME_TO_BODY = {
     "Archon Boreal": "Bird(?) Boy",
     "Archon Nira": "Snake Lady",
 }
-
-command_prefix = '!'
-bot = commands.Bot(command_prefix=command_prefix, intents=intents)
 
 # Set the desired timezone
 timezone = pytz.timezone("PST8PDT")

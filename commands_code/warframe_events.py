@@ -5,7 +5,7 @@ from discord.ext import tasks
 
 from commands_code.utils.NodeReward import NodeReward
 from bot_utils.bot_notifications import ping_in_all_bot_commands
-from bot_utils.globals import bot, logger, wf_alert_timer, NODE_KEY, BASIC_REWARDS, gruvi_roles, all_alert_role
+from bot_utils.globals import bot, logger, wf_alert_timer, NODE_KEY, BASIC_REWARDS, bot_roles, all_alert_role
 from bot_utils.shared_functions import get_api_data, get_stored_data_file, load_data, dump_data
 
 ALERT_API_KEY = "alerts"
@@ -51,7 +51,7 @@ async def warframe_event_notifications():
     logger.info("RECEIVED: Request to ping for new alerts")
     out_str, rare = await alert_body(True)
     if out_str and isinstance(out_str, str) and rare:
-        await ping_in_all_bot_commands(out_str, gruvi_roles)
+        await ping_in_all_bot_commands(out_str, bot_roles)
     if out_str and isinstance(out_str, str) and rare is False:
         await ping_in_all_bot_commands(out_str, [all_alert_role])
     logger.info("SUCCESS: Checked for new alerts")

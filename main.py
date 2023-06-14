@@ -41,7 +41,6 @@ async def setup():
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}')
     await setup()
-    # await ping_in_all_bot_commands(f"{bot.user.name} is here and ready to Flamenco", gruvi_roles)
     logger.info(f'SUCCESS: Set up {bot.user.name}')
 
 
