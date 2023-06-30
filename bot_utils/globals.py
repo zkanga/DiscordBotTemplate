@@ -6,6 +6,7 @@ import discord
 import pytz
 import requests
 from discord.ext import commands
+import datetime
 
 headers = {"Authorization": f"Bot {os.environ.get('bot_key')}"}
 response = requests.get("https://discord.com/api/v10/users/@me", headers=headers)
