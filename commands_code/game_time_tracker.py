@@ -17,7 +17,14 @@ definite_dates = {
 
 }
 
-indefinite_dates = {"Baldur's Gate 3"}
+indefinite_dates = {
+    "Baldur's Gate 3"
+    , "Nightingale"
+    , "Haunted Chocolatier"
+    , "Ark 2"
+    , "Wizard with a Gun"
+    , "Baldur's Gate 3"
+}
 
 
 def date_diff(date_name, d1, d2=datetime.now(), suffix=""):
