@@ -5,6 +5,7 @@ from commands_code.sortie_info import Sortie
 from commands_code.archon_hunt import ArchonHunt
 from commands_code.vaulted_prime_parts import VaultedPrimeParts
 from commands_code.unvaulted_relics import UnvaultedRelics
+from commands_code.game_time_tracker import DateTracker
 from bot_utils.bot_notifications import BotNotifications
 import os
 
@@ -21,6 +22,7 @@ cogs = [
     , BotNotifications()
     , ArchonHunt()
     , UnvaultedRelics()
+    , DateTracker()
 ]
 
 routines = [
