@@ -27,7 +27,7 @@ indefinite_dates = {
 }
 
 
-def date_diff(date_name, d1, d2=datetime.now(), suffix=""):
+def date_diff(date_name, d1, d2, suffix=""):
     diff = d1 - d2
     days_diff = abs(diff.days)
 
@@ -59,7 +59,7 @@ class DateTracker(commands.Cog):
                 else:
                     suffix = ""
                 dates.append(date_name)
-                out.append(date_diff(date_name, definite_dates[date_name], suffix=suffix))
+                out.append(date_diff(date_name, definite_dates[date_name], datetime.now(), suffix=suffix))
         out = '\n' + '\n'.join(out)
         await ctx.send(f"{out}\nTracked {', '.join(dates)} {ctx.author.mention}")
         logger.info(f"Tracker: SUCCESSFULLY served {dates} date info to {ctx.author} in {ctx.guild}")
