@@ -27,7 +27,7 @@ indefinite_dates = {
 }
 
 
-def date_diff(date_name, d1, d2, suffix=""):
+def date_diff(date_name, d1, d2=datetime.now(), suffix=""):
     diff = d1 - d2
     days_diff = abs(diff.days)
 
